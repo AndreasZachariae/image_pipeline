@@ -211,6 +211,8 @@ namespace image_view
   void ImageSaverNode::callbackWithoutCameraInfo(
       const sensor_msgs::msg::Image::ConstSharedPtr &image_msg)
   {
+    RCLCPP_INFO(this->get_logger(), "test");
+
     if (is_first_image_)
     {
       is_first_image_ = false;
@@ -259,6 +261,8 @@ namespace image_view
       const sensor_msgs::msg::CameraInfo::ConstSharedPtr &info)
   {
     has_camera_info_ = true;
+
+    RCLCPP_INFO(this->get_logger(), "test with camera info");
 
     if (!save_image_service && request_start_end)
     {
